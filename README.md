@@ -1,0 +1,2 @@
+# prettyslog
+Prettier log/slog
