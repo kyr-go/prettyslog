@@ -1,5 +1,6 @@
 # Pretty Slog - A Prettier log/slog
 [![Go Reference](https://pkg.go.dev/badge/github.com/kyr-go/prettyslog.svg)](https://pkg.go.dev/github.com/kyr-go/prettyslog)
+[![Go](https://github.com/kyr-go/prettyslog/actions/workflows/go.yml/badge.svg)](https://github.com/kyr-go/prettyslog/actions/workflows/go.yml)
 
 ## Install
     go get github.com/kyr-go/prettyslog@latest
