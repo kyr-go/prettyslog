@@ -2,6 +2,8 @@
 [![Go Reference](https://pkg.go.dev/badge/github.com/kyr-go/prettyslog.svg)](https://pkg.go.dev/github.com/kyr-go/prettyslog)
 [![Go](https://github.com/kyr-go/prettyslog/actions/workflows/go.yml/badge.svg)](https://github.com/kyr-go/prettyslog/actions/workflows/go.yml)
 
+<img width="430" height="93" alt="image" src="https://github.com/user-attachments/assets/79a708a2-0165-435c-a51e-84d51130f417" />
+
 ## Install
 ```bash
 go get github.com/kyr-go/prettyslog@latest
