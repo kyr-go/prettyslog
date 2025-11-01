@@ -15,7 +15,7 @@ func Example() {
 	slog.SetDefault(slog.New(prettyslog.NewHandler(os.Stdout, &opts)))
 
 	slog.Debug("Debug Message")
-	slog.Info("Hello World")
+	slog.Info("Info Message")
 	slog.Warn("Warning Message")
 	slog.Error("Error Message")
 }
