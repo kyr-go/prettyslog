@@ -2,6 +2,7 @@
 [![Go Reference](https://pkg.go.dev/badge/github.com/kyr-go/prettyslog.svg)](https://pkg.go.dev/github.com/kyr-go/prettyslog)
 [![Go Report Card](https://goreportcard.com/badge/github.com/kyr-go/prettyslog)](https://goreportcard.com/report/github.com/kyr-go/prettyslog)
 [![Go](https://github.com/kyr-go/prettyslog/actions/workflows/go.yml/badge.svg)](https://github.com/kyr-go/prettyslog/actions/workflows/go.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/kyr-go/prettyslog/blob/main/LICENSE)
 
 <img width="430" height="93" alt="image" src="https://github.com/user-attachments/assets/79a708a2-0165-435c-a51e-84d51130f417" />
 
