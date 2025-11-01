@@ -37,7 +37,7 @@ func main() {
 		slog.Group("reqs2",
 			slog.String("url", "/api"),
 			slog.Int("id", 42),
-			slog.Group("reqs3", "url", "/api", "heh", "hehe"),
+			slog.Group("reqs3", "url", "/api", "data", "none"),
 			slog.Group("reqs4", "url", "/api", slog.Group("reqs5", "url", "/api", slog.Attr{
 				Key:   "id",
 				Value: slog.IntValue(70),
