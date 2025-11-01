@@ -1,0 +1,10 @@
+* text=auto
+
+.github/* export-ignore
+example/* export-ignore
+*.md      export-ignore
+.gitattributes export-ignore
+.gitignore    export-ignore
+*_test.go export-ignore
+
+!*_example_test.go
