@@ -3,7 +3,9 @@
 [![Go](https://github.com/kyr-go/prettyslog/actions/workflows/go.yml/badge.svg)](https://github.com/kyr-go/prettyslog/actions/workflows/go.yml)
 
 ## Install
-    go get github.com/kyr-go/prettyslog@latest
+```bash
+go get github.com/kyr-go/prettyslog@latest
+```
 
 ## Basic Usage
 ```go
