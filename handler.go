@@ -45,13 +45,31 @@ func (h *PrettyHandler) Handle(_ context.Context, r slog.Record) error {
 		freeBuf(bufp)
 	}()
 
+	rep := h.opts.ReplaceAttr
+
 	// Time
 	if !r.Time.IsZero() {
-		buf = h.appendAttr(buf, slog.Time(slog.TimeKey, r.Time), 0)
+		a := slog.Time(slog.TimeKey, r.Time)
+		if rep != nil {
+			a = rep(nil, a)
+			if a.Equal(slog.Attr{}) {
+				a = slog.Attr{}
+			}
+		}
+		buf = h.appendAttr(buf, a, 0)
 	}
 
 	// Level
-	buf = h.appendAttr(buf, slog.Any(slog.LevelKey, levels[r.Level]), 0)
+	a := slog.Any(slog.LevelKey, levels[r.Level])
+	if rep != nil {
+		replaced := rep(nil, slog.Any(slog.LevelKey, r.Level))
+		if replaced.Equal(slog.Attr{}) {
+			a = slog.Attr{}
+		} else if _, ok := levels[r.Level]; !ok || replaced.Value.Kind() != slog.KindAny {
+			a = replaced
+		}
+	}
+	buf = h.appendAttr(buf, a, 0)
 
 	// Source
 	if h.opts.AddSource {
@@ -99,13 +117,6 @@ func (h *PrettyHandler) appendAttr(buf []byte, a slog.Attr, openedCount int) []b
 	}
 
 	switch a.Value.Kind() {
-	case slog.KindString:
-		if a.Key == slog.SourceKey || a.Key == slog.MessageKey || a.Key == slog.LevelKey {
-			buf = append(buf, a.Value.String()...)
-		} else {
-			// White key text
-			buf = fmt.Appendf(buf, "\x1B[1;37m%s=\x1B[0m\"%s\"", a.Key, a.Value.String())
-		}
 	case slog.KindTime:
 		buf = a.Value.Time().AppendFormat(buf, time.DateTime)
 	case slog.KindGroup:
@@ -124,8 +135,12 @@ func (h *PrettyHandler) appendAttr(buf []byte, a slog.Attr, openedCount int) []b
 		// Cyan closing group text
 		buf = h.closeGroups(buf, 1, "\x1B[36m)\x1B[0m")
 	default:
-		// White key text
-		buf = fmt.Appendf(buf, "\x1B[1;37m%s=\x1B[0m%s", a.Key, a.Value.String())
+		if a.Key == slog.SourceKey || a.Key == slog.MessageKey || a.Key == slog.LevelKey || a.Key == slog.TimeKey {
+			buf = append(buf, a.Value.String()...)
+		} else {
+			// White key text
+			buf = fmt.Appendf(buf, "\x1B[1;37m%s=\x1B[0m\"%s\"", a.Key, a.Value.String())
+		}
 	}
 	buf = append(buf, ' ')
 
