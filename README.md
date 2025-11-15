@@ -4,6 +4,7 @@
 [![Go](https://github.com/kyr-go/prettyslog/actions/workflows/go.yml/badge.svg)](https://github.com/kyr-go/prettyslog/actions/workflows/go.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/kyr-go/prettyslog/blob/main/LICENSE)
 
+<img width="1147" height="118" alt="image" src="https://github.com/user-attachments/assets/18e75b0e-94f4-4d9a-8a61-cffbdc294d00" />
 <img width="430" height="93" alt="image" src="https://github.com/user-attachments/assets/79a708a2-0165-435c-a51e-84d51130f417" />
 
 ## Install
@@ -35,3 +36,6 @@ func main() {
 	slog.Error("Error Message")
 }
 ```
+## Features
+- Colorize Levels and Group
+- Customizable Levels and Time format using ReplaceAttr
